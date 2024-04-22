@@ -4,10 +4,12 @@
 //
 #define CNAME "OpenPool"
 #define CVER "a0.0.1"
-#define SCREEN_W 640
-#define SCREEN_H 360
+#define SCREEN_W 1280
+#define SCREEN_H 860
 
+#include <unistd.h>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <vector>
 #include <string>
 #include <filesystem>
@@ -16,4 +18,5 @@
 #include <cstdint>
 #include <cmath>
 #include <ctime>
-
+#include <fstream>
+#include <filesystem>

@@ -10,7 +10,7 @@ void cVideo::Init() {
     window = SDL_CreateWindow(
         (std::string(CNAME) + " " + CVER).c_str(),
         SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-        640, 480,
+        1280, 860,
         SDL_WINDOW_RESIZABLE
     );
 

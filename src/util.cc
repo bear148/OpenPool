@@ -13,6 +13,21 @@ std::string Util::CurrentTime() {
     return std::string(buffer);
 }
 
+std::string Util::GetExecutableLocation() {
+    char buffer[1024];
+    ssize_t len = readlink("/proc/self/exe", buffer, sizeof(buffer));
+    if (len != -1) {
+        buffer[len] = '\0';
+        return std::string(buffer);
+    }
+
+    return "";
+}
+
+std::string Util::DirName(std::string path) {
+    return path.substr(0, path.rfind('/'));
+}
+
 void Util::Log(const char* format, ...) {
     int n = 0;
     size_t size = 0;

@@ -1,12 +1,21 @@
 #include "app.hh"
 
 App::App():
-    running(true)
+    running(true),
+    gameFolder(Util::DirName(Util::GetExecutableLocation()))
 {
+    image.Init();
     video.Init();
+
+    poolBalls.Init(
+        video.renderer,
+        gameFolder + "/pballs/sheet.png",
+        80
+    );
 }
 
 App::~App() {
+    image.Free();
     video.Free();
 }
 
@@ -26,4 +35,24 @@ void App::Update() {
             }
         }
     }
+    Render();
+}
+
+void App::Render() {
+    SDL_SetRenderDrawColor(video.renderer, 0, 0, 25, 255);
+    SDL_RenderClear(video.renderer);
+
+    Vec2 block;
+
+    block.x = 39;
+    block.y = 39;
+    // TO-DO Render something to the screen
+    poolBalls.RenderTile(
+        video.renderer,
+        3,
+        block
+    );
+
+
+    SDL_RenderPresent(video.renderer);
 }
