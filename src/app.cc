@@ -47,11 +47,14 @@ void App::Render() {
     block.x = 39;
     block.y = 39;
     // TO-DO Render something to the screen
-    poolBalls.RenderTile(
-        video.renderer,
-        3,
-        block
-    );
+    for (int i = 0; i < 17; i++) {
+        block.x += 39;
+        poolBalls.RenderTile(
+            video.renderer,
+            i,
+            block
+        );
+    }
 
 
     SDL_RenderPresent(video.renderer);
